@@ -499,6 +499,148 @@
       line-height: 1.4;
     }
 
+    /* ─── DŮKAZY / SLIDESHOW ────────────────────────── */
+    #proof {
+      background: var(--black-2);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .proof-sub {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 580px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    .carousel-wrap {
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-slide {
+      flex: 0 0 calc((100% - 32px) / 3);
+      scroll-snap-align: start;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 209, 3, 0.2);
+      display: block;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .carousel-slide img:hover {
+      border-color: rgba(255, 209, 3, 0.5);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7);
+    }
+
+    .carousel-nav {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+
+    .carousel-btn {
+      background: rgba(255, 209, 3, 0.1);
+      border: 1.5px solid rgba(255, 209, 3, 0.35);
+      color: var(--yellow);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-btn:hover {
+      background: var(--yellow);
+      color: var(--black);
+      border-color: var(--yellow);
+      transform: scale(1.08);
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: var(--yellow);
+      transform: scale(1.4);
+    }
+
+    /* ─── SPOLUPRÁCE UKÁZKA ─────────────────────────── */
+    #collab {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .collab-card {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      background: var(--black-2);
+      border: 1px solid rgba(255, 209, 3, 0.25);
+      border-radius: 4px;
+      padding: 56px 64px;
+      margin-top: 48px;
+      max-width: 600px;
+      width: 100%;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .collab-card:hover {
+      border-color: var(--yellow);
+      box-shadow: 0 0 48px rgba(255, 209, 3, 0.1);
+    }
+
+    .collab-icon {
+      font-size: 3rem;
+    }
+
+    .collab-card p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.7;
+      max-width: 420px;
+    }
+
     /* ─── NABÍDKA ───────────────────────────────────── */
     #offer {
       background: var(--black-2);
@@ -677,6 +819,14 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .carousel-slide {
+        flex: 0 0 85%;
+      }
+
+      .collab-card {
+        padding: 40px 24px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -698,6 +848,7 @@
     <ul class="nav-links">
       <li><a href="#about">O nás</a></li>
       <li><a href="#stats">Čísla</a></li>
+      <li><a href="#proof">Důkazy</a></li>
       <li><a href="#offer">Nabídka</a></li>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
@@ -772,31 +923,100 @@
       <!-- Featured: Followers -->
       <div class="stat-featured fade-in fade-in-delay-1">
         <span class="live-badge"><span class="live-dot"></span>Sledující</span>
-        <span class="stat-number-featured" id="followerCount" data-target="98307">0</span>
+        <span class="stat-number-featured" id="followerCount" data-target="99205">0</span>
         <span class="stat-label-featured">Followers</span>
       </div>
 
       <!-- Secondary stats -->
       <div class="stats-grid" id="statsGrid">
         <div class="stat-item fade-in fade-in-delay-1">
-          <span class="stat-number" data-target="3164197" data-suffix="">0</span>
+          <span class="stat-number" data-target="2193345" data-suffix="">0</span>
           <span class="stat-label">Měsíční views</span>
         </div>
         <div class="stat-item fade-in fade-in-delay-2">
-          <span class="stat-number" data-target="214642" data-suffix="">0</span>
+          <span class="stat-number" data-target="121522" data-suffix="">0</span>
           <span class="stat-label">Interakcí / měsíc</span>
         </div>
         <div class="stat-item fade-in fade-in-delay-3">
-          <span class="stat-number" data-target="710104" data-suffix="">0</span>
+          <span class="stat-number" data-target="490223" data-suffix="">0</span>
           <span class="stat-label">Accounts reached</span>
         </div>
         <div class="stat-item fade-in fade-in-delay-1">
-          <span class="stat-number" data-target="715" data-suffix="%" data-decimal="1" data-divisor="10">0</span>
+          <span class="stat-number" data-target="652" data-suffix="%" data-decimal="1" data-divisor="10">0</span>
           <span class="stat-label">Non-follower reach</span>
         </div>
         <div class="stat-item fade-in fade-in-delay-2">
           <span class="stat-number" data-target="444" data-suffix="%" data-decimal="1" data-divisor="10">0</span>
           <span class="stat-label">Core skupina 25–34 let</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DŮKAZY DOSAHU -->
+  <section id="proof">
+    <div class="container">
+      <p class="section-label fade-in">Přímé záznamy z Instagram Insights</p>
+      <h2 class="section-title fade-in fade-in-delay-1">Čísla <span style="color:var(--yellow)">doložená</span></h2>
+      <div class="divider fade-in fade-in-delay-1"></div>
+      <p class="proof-sub fade-in fade-in-delay-2">Screenshoty přímo z naší aplikace — data za posledních 30 a 90 dní. Bez retuše, bez úprav.</p>
+
+      <div class="carousel-wrap fade-in fade-in-delay-3">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1469.jpg" alt="Instagram content — stories views" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1467.PNG" alt="Instagram views 30 dní" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1463.PNG" alt="Instagram interactions" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1465.PNG" alt="Instagram views 90 dní" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1464.PNG" alt="Instagram professional dashboard" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1462.PNG" alt="Instagram views detail" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1470.jpg" alt="Instagram content výkon" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1468.PNG" alt="Instagram top příspěvky 3 měsíce" loading="lazy" />
+          </div>
+          <div class="carousel-slide">
+            <img src="screenshoty/IMG_1466.PNG" alt="Instagram top příspěvky 30 dní" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="carousel-btn" id="carouselPrev" aria-label="Předchozí">&#8592;</button>
+          <button class="carousel-btn" id="carouselNext" aria-label="Další">&#8594;</button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UKÁZKA SPOLUPRÁCE -->
+  <section id="collab">
+    <div class="container">
+      <p class="section-label fade-in" style="text-align:center;">Reálná spolupráce</p>
+      <h2 class="section-title fade-in fade-in-delay-1" style="text-align:center;">Jak to <span style="color:var(--yellow)">vypadá v praxi</span></h2>
+      <div class="divider fade-in fade-in-delay-1" style="margin: 0 auto 0;"></div>
+      <div style="display:flex; justify-content:center;">
+        <div class="collab-card fade-in fade-in-delay-2">
+          <span class="collab-icon">&#x1F91D;</span>
+          <p>Podívejte se na reálnou ukázku branded spolupráce přímo na našem profilu — organicky zasazenou do našeho formátu bez toho, aby působila jako reklama.</p>
+          <a href="https://www.instagram.com/p/DYShO6SEVbw/?img_index=1"
+             target="_blank"
+             rel="noopener"
+             class="btn btn-primary">
+            Zobrazit ukázku spolupráce
+          </a>
         </div>
       </div>
     </div>
@@ -911,18 +1131,18 @@
         const current  = Math.floor(eased * target);
 
         if (isDecimal) {
-          el.textContent = (current / divisor).toFixed(1).replace('.', ',') + '\u00a0' + suffix;
+          el.textContent = (current / divisor).toFixed(1).replace('.', ',') + ' ' + suffix;
         } else {
-          el.textContent = formatNumber(current) + (suffix ? '\u00a0' + suffix : '');
+          el.textContent = formatNumber(current) + (suffix ? ' ' + suffix : '');
         }
 
         if (progress < 1) {
           requestAnimationFrame(tick);
         } else {
           if (isDecimal) {
-            el.textContent = (target / divisor).toFixed(1).replace('.', ',') + '\u00a0' + suffix;
+            el.textContent = (target / divisor).toFixed(1).replace('.', ',') + ' ' + suffix;
           } else {
-            el.textContent = formatNumber(target) + (suffix ? '\u00a0' + suffix : '');
+            el.textContent = formatNumber(target) + (suffix ? ' ' + suffix : '');
           }
         }
       }
@@ -948,6 +1168,71 @@
       avatar.style.display = 'none';
       avatar.nextElementSibling.style.display = 'flex';
     }
+
+    // ── CAROUSEL ─────────────────────────────────────
+    (function () {
+      const track = document.getElementById('carouselTrack');
+      const dotsWrap = document.getElementById('carouselDots');
+      const prevBtn = document.getElementById('carouselPrev');
+      const nextBtn = document.getElementById('carouselNext');
+      if (!track) return;
+
+      const slides = track.querySelectorAll('.carousel-slide');
+      const total = slides.length;
+
+      function perView() {
+        return window.innerWidth <= 768 ? 1 : 3;
+      }
+
+      function dotCount() {
+        return Math.ceil(total / perView());
+      }
+
+      function buildDots() {
+        dotsWrap.innerHTML = '';
+        const n = dotCount();
+        for (let i = 0; i < n; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          btn.setAttribute('aria-label', 'Stránka ' + (i + 1));
+          btn.addEventListener('click', () => scrollToPage(i));
+          dotsWrap.appendChild(btn);
+        }
+      }
+
+      function scrollToPage(page) {
+        const slide = slides[page * perView()];
+        if (slide) {
+          track.scrollTo({ left: slide.offsetLeft, behavior: 'smooth' });
+        }
+      }
+
+      function updateDots() {
+        const pv = perView();
+        const slideW = slides[0] ? slides[0].offsetWidth + 16 : 1;
+        const page = Math.round(track.scrollLeft / slideW / pv);
+        dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === page);
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        const pv = perView();
+        const slideW = slides[0] ? slides[0].offsetWidth + 16 : 0;
+        track.scrollBy({ left: -slideW * pv, behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const pv = perView();
+        const slideW = slides[0] ? slides[0].offsetWidth + 16 : 0;
+        track.scrollBy({ left: slideW * pv, behavior: 'smooth' });
+      });
+
+      track.addEventListener('scroll', updateDots, { passive: true });
+      window.addEventListener('resize', () => { buildDots(); updateDots(); });
+
+      buildDots();
+    })();
   </script>
 </body>
 </html>
