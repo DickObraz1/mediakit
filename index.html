@@ -719,6 +719,123 @@
       font-style: normal;
     }
 
+    /* ─── CENÍK ─────────────────────────────────────── */
+    #pricing {
+      background: var(--black-2);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    .pricing-card {
+      background: var(--black);
+      border: 1.5px solid rgba(255, 209, 3, 0.15);
+      border-radius: 4px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(255, 209, 3, 0.5);
+      box-shadow: 0 0 32px rgba(255, 209, 3, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--yellow);
+      background: var(--black-3);
+    }
+
+    .pricing-card.featured:hover {
+      box-shadow: 0 0 48px rgba(255, 209, 3, 0.2);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+    .pricing-icon {
+      font-size: 2rem;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .pricing-card .pricing-desc {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .pricing-price {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--yellow);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .pricing-price span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0;
+    }
+
+    .pricing-note {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .pricing-note a {
+      color: var(--yellow);
+      text-decoration: none;
+    }
+
+    .pricing-note a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ─── KONTAKT ───────────────────────────────────── */
     #contact {
       background: var(--black);
@@ -850,6 +967,7 @@
       <li><a href="#stats">Čísla</a></li>
       <li><a href="#proof">Důkazy</a></li>
       <li><a href="#offer">Nabídka</a></li>
+      <li><a href="#pricing">Ceník</a></li>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
   </nav>
@@ -1052,6 +1170,60 @@
       </div>
       <p class="offer-note fade-in">
         <strong>Nenabízíme product placement.</strong> Nabízíme příběh.
+      </p>
+    </div>
+  </section>
+
+  <!-- CENÍK -->
+  <section id="pricing">
+    <div class="container">
+      <p class="section-label fade-in">Transparentní podmínky</p>
+      <h2 class="section-title fade-in fade-in-delay-1">Ceník <span style="color:var(--yellow)">spolupráce</span></h2>
+      <div class="divider fade-in fade-in-delay-1"></div>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card fade-in fade-in-delay-1">
+          <span class="pricing-icon">&#x1F4F8;</span>
+          <h3>Sada Stories</h3>
+          <p class="pricing-desc">3 stories + 3 stories — autentický formát s přímým kontaktem s publikem.</p>
+          <div class="pricing-price">5 000 <span>Kč</span></div>
+        </div>
+
+        <div class="pricing-card fade-in fade-in-delay-2">
+          <span class="pricing-icon">&#x1F4CC;</span>
+          <h3>Pevný příspěvek</h3>
+          <p class="pricing-desc">Jeden statický post organicky zasazený do našeho feedu.</p>
+          <div class="pricing-price">8 000 <span>Kč</span></div>
+        </div>
+
+        <div class="pricing-card fade-in fade-in-delay-3">
+          <span class="pricing-icon">&#x1F3A0;</span>
+          <h3>Carousel</h3>
+          <p class="pricing-desc">Hloubkový carousel s vysokým save rate — ideální pro storytelling.</p>
+          <div class="pricing-price">12 000 <span>Kč</span></div>
+        </div>
+
+        <div class="pricing-card featured fade-in fade-in-delay-4">
+          <span class="pricing-badge">Nejoblíbenější</span>
+          <span class="pricing-icon">&#x1F4E6;</span>
+          <h3>Balíček</h3>
+          <p class="pricing-desc">Sada Stories + Carousel — maximální dosah za nejlepší cenu.</p>
+          <div class="pricing-price">15 000 <span>Kč</span></div>
+        </div>
+
+        <div class="pricing-card fade-in fade-in-delay-1">
+          <span class="pricing-icon">&#x1F3AC;</span>
+          <h3>Reel</h3>
+          <p class="pricing-desc">Videoformát na míru — rozsah a cena dle individuální domluvy.</p>
+          <div class="pricing-price" style="font-size:1.3rem; color: rgba(255,209,3,0.7);">Dle domluvy</div>
+        </div>
+
+      </div>
+
+      <p class="pricing-note fade-in">
+        Všechny ceny jsou bez DPH. Máte specifický požadavek?
+        <a href="mailto:office@dickobraz.cz">Napište nám.</a>
       </p>
     </div>
   </section>
